@@ -5,14 +5,14 @@
 
 	<Style 
 		Selector="Button.CalcButton">
-		<Setter Property="Width" Value="40" />
-		<Setter Property="Height" Value="40" />
-		<Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="CornerRadius" Value="7" />
 		<Setter Property="BorderBrush" Value="Black" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Margin" Value="1.5" />
-	</Style>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
 	
 </Styles>
