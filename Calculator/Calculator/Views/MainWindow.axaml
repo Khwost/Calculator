@@ -3,7 +3,7 @@
         xmlns:vm="using:Calculator.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="270"
 		Width="200" Height="270"
         x:Class="Calculator.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -25,12 +25,12 @@
 			HorizontalAlignment="Center"
 			VerticalAlignment="Center">
 
-			<TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Right" Text="0" FontWeight="Bold" FontSize="30" />
+			<TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Right" Text="{ Binding OutputText }" FontWeight="Bold" FontSize="30" />
 
-			<Button Grid.Column="0" Grid.Row="1" Content="7" Classes="CalcButton" />
-			<Button Grid.Column="1" Grid.Row="1" Content="8" Classes="CalcButton" />
-			<Button Grid.Column="2" Grid.Row="1" Content="9" Classes="CalcButton" />
-			<Button Grid.Column="3" Grid.Row="1" Content="+" Classes="CalcButton" />
+			<Button Grid.Column="0" Grid.Row="1" Content="7" Classes="CalcButton" Command="{ Binding PressSevenCommand }" />
+			<Button Grid.Column="1" Grid.Row="1" Content="8" Classes="CalcButton" Command="{ Binding PressEightCommand }"/>
+			<Button Grid.Column="2" Grid.Row="1" Content="9" Classes="CalcButton" Command="{ Binding PressNineCommand }"/>
+			<Button Grid.Column="3" Grid.Row="1" Content="+" Classes="CalcButton" Command="{ Binding PressPlusCommand }"/>
 
 			<Button Grid.Column="0" Grid.Row="2" Content="4" Classes="CalcButton" />
 			<Button Grid.Column="1" Grid.Row="2" Content="5" Classes="CalcButton" />
