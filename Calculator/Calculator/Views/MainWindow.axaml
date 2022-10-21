@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Calculator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Calculator.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Calculator">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid
+		ColumnDefinitions="Auto, Auto, Auto, Auto"
+		RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
+		Background="Red"
+		Margin="10">
+		
+		
+		<Button Grid.Column="0" Grid.Row="1" Content="7" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="1" Grid.Row="1" Content="8" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="2" Grid.Row="1" Content="9" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="3" Grid.Row="1" Content="+" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+		<Button Grid.Column="0" Grid.Row="2" Content="4" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="1" Grid.Row="2" Content="5" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="2" Grid.Row="2" Content="6" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="3" Grid.Row="2" Content="-" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+		<Button Grid.Column="0" Grid.Row="3" Content="1" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="1" Grid.Row="3" Content="2" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="2" Grid.Row="3" Content="3" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="3" Grid.Row="3" Content="*" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+		<Button Grid.Column="0" Grid.Row="4" Content="0" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="1" Grid.Row="4" Content="." Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="2" Grid.Row="4" Content="%" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="3" Grid.Row="4" Content="/" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+		<Button Grid.Column="0" Grid.Row="5" Content="²" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="1" Grid.Row="5" Content="³" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="2" Grid.Row="5" Content="√" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		<Button Grid.Column="3" Grid.Row="5" Content="∛" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+		
+	</Grid>
+
+</Window>
