@@ -34,20 +34,20 @@
 			<Button Grid.Column="2" Grid.Row="1" Content="9" Classes="CalcButton" Command="{ Binding PressNineCommand }"/>
 			<Button Grid.Column="3" Grid.Row="1" Content="+" Classes="CalcButton" Command="{ Binding PressPlusCommand }"/>
 
-			<Button Grid.Column="0" Grid.Row="2" Content="4" Classes="CalcButton" />
-			<Button Grid.Column="1" Grid.Row="2" Content="5" Classes="CalcButton" />
-			<Button Grid.Column="2" Grid.Row="2" Content="6" Classes="CalcButton" />
-			<Button Grid.Column="3" Grid.Row="2" Content="-" Classes="CalcButton" />
+			<Button Grid.Column="0" Grid.Row="2" Content="4" Classes="CalcButton" Command="{ Binding PressFourCommand }"/>
+			<Button Grid.Column="1" Grid.Row="2" Content="5" Classes="CalcButton" Command="{ Binding PressFiveCommand }"/>
+			<Button Grid.Column="2" Grid.Row="2" Content="6" Classes="CalcButton" Command="{ Binding PressSixCommand }"/>
+			<Button Grid.Column="3" Grid.Row="2" Content="-" Classes="CalcButton" Command="{ Binding PressMinusCommand }"/>
 
-			<Button Grid.Column="0" Grid.Row="3" Content="1" Classes="CalcButton" />
-			<Button Grid.Column="1" Grid.Row="3" Content="2" Classes="CalcButton" />
-			<Button Grid.Column="2" Grid.Row="3" Content="3" Classes="CalcButton" />
-			<Button Grid.Column="3" Grid.Row="3" Content="*" Classes="CalcButton" />
+			<Button Grid.Column="0" Grid.Row="3" Content="1" Classes="CalcButton" Command="{ Binding PressOneCommand }"/>
+			<Button Grid.Column="1" Grid.Row="3" Content="2" Classes="CalcButton" Command="{ Binding PressTwoCommand }"/>
+			<Button Grid.Column="2" Grid.Row="3" Content="3" Classes="CalcButton" Command="{ Binding PressThreeCommand }"/>
+			<Button Grid.Column="3" Grid.Row="3" Content="*" Classes="CalcButton" Command="{ Binding PressMultiplicationCommand }"/>
 
-			<Button Grid.Column="0" Grid.Row="4" Content="0" Classes="CalcButton" />
-			<Button Grid.Column="1" Grid.Row="4" Content="." Classes="CalcButton" />
-			<Button Grid.Column="2" Grid.Row="4" Content="%" Classes="CalcButton" />
-			<Button Grid.Column="3" Grid.Row="4" Content="/" Classes="CalcButton" />
+			<Button Grid.Column="0" Grid.Row="4" Content="0" Classes="CalcButton" Command="{ Binding PressZeroCommand }"/>
+			<Button Grid.Column="1" Grid.Row="4" Content="." Classes="CalcButton" Command="{ Binding PressPointCommand }"/>
+			<Button Grid.Column="2" Grid.Row="4" Content="±" Classes="CalcButton" Command="{ Binding PressChangeSignCommand }"/>
+			<Button Grid.Column="3" Grid.Row="4" Content="/" Classes="CalcButton" Command="{ Binding PressDivinationCommand }"/>
 
 			<Button Grid.Column="0" Grid.Row="5" Content="²" Classes="CalcButton" />
 			<Button Grid.Column="1" Grid.Row="5" Content="³" Classes="CalcButton" />
