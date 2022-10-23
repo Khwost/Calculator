@@ -45,7 +45,7 @@
 			<Button Grid.Column="3" Grid.Row="3" Content="*" Classes="CalcButton" Command="{ Binding PressMultiplicationCommand }"/>
 
 			<Button Grid.Column="0" Grid.Row="4" Content="0" Classes="CalcButton" Command="{ Binding PressZeroCommand }"/>
-			<Button Grid.Column="1" Grid.Row="4" Content="." Classes="CalcButton" Command="{ Binding PressPointCommand }"/>
+			<Button Grid.Column="1" Grid.Row="4" Content="." Classes="CalcButton" Command="{ Binding PressDotCommand }"/>
 			<Button Grid.Column="2" Grid.Row="4" Content="±" Classes="CalcButton" Command="{ Binding PressChangeSignCommand }"/>
 			<Button Grid.Column="3" Grid.Row="4" Content="/" Classes="CalcButton" Command="{ Binding PressDivinationCommand }"/>
 

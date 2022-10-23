@@ -95,7 +95,7 @@ namespace Calculator.ViewModels
         /// <summary>
         /// Нажатие на кнопку точки
         /// </summary>
-        public ReactiveCommand<Unit, Unit> PressPointCommand { get; }
+        public ReactiveCommand<Unit, Unit> PressDotCommand { get; }
 
         /// <summary>
         /// Нажатие на кнопку процента
@@ -105,7 +105,7 @@ namespace Calculator.ViewModels
         /// <summary>
         /// Нажатие на кнопку деления
         /// </summary>
-        public ReactiveCommand<Unit, Unit> PressDivinationCommand { get; }
+        public ReactiveCommand<Unit, Unit> PressDivisionCommand { get; }
 
         #endregion
 
@@ -132,10 +132,12 @@ namespace Calculator.ViewModels
             PressMultiplicationCommand = ReactiveCommand.Create(OnMultiplicationPressed);
 
             PressZeroCommand = ReactiveCommand.Create(OnZeroPressed);
-            PressPointCommand = ReactiveCommand.Create(OnPointPressed);
+            PressDotCommand = ReactiveCommand.Create(OnDotPressed);
             PressChangeSignCommand = ReactiveCommand.Create(OnChangeSignPressed);
-            PressDivinationCommand = ReactiveCommand.Create(OnDivinationPressed);
+            PressDivisionCommand = ReactiveCommand.Create(OnDivisionPressed);
         }
+
+        #region Кнопки
 
         /// <summary>
         /// Кнопка 7
@@ -244,7 +246,7 @@ namespace Calculator.ViewModels
         /// <summary>
         /// Кнопка точки
         /// </summary>
-        private void OnPointPressed()
+        private void OnDotPressed()
         {
             OutputText += ".";
         }
@@ -260,9 +262,11 @@ namespace Calculator.ViewModels
         /// <summary>
         /// Кнопка 3
         /// </summary>
-        private void OnDivinationPressed()
+        private void OnDivisionPressed()
         {
             OutputText += "/";
         }
+
+        #endregion
     }
 }
