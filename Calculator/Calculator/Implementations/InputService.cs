@@ -6,6 +6,11 @@ namespace Calculator.Implementations
     public class InputService: IInputService
     {
         /// <summary>
+        /// Ограничение допустимых чисел в калькуляторе
+        /// </summary>
+        private const decimal CalculatorLimit = decimal.MaxValue / 100.0m;
+
+        /// <summary>
         /// Число, которое хранится и отображается на экране
         /// </summary>
         private decimal _number;
@@ -13,7 +18,12 @@ namespace Calculator.Implementations
         /// <summary>
         /// Делитель для введённого числа
         /// </summary>
-        private int _divider = 10;
+        private decimal _divider = 1;
+
+        /// <summary>
+        /// Отрицательно-ли число?
+        /// </summary>
+        private bool _isNegative;
 
         /// <summary>
         /// Нажата точка или нет
@@ -27,16 +37,16 @@ namespace Calculator.Implementations
                 throw new ArgumentException(nameof(digit));
             }
 
+            if (Math.Abs(_number) > CalculatorLimit || Math.Abs(_divider) > CalculatorLimit)
+            {
+                return;
+            }
+
+            _number = _number * 10.0m + digit;
+
             if (_isDotPressed)
             {
-                // После нажатия точки
-                _number = _number + digit / (decimal)_divider;
-                _divider = _divider * 10;
-            }
-            else
-            {
-                // Если точка не нажата
-                _number = _number * 10 + digit;
+                _divider = _divider * 10.0m;
             }
         }
 
@@ -52,17 +62,27 @@ namespace Calculator.Implementations
 
         public void ChangeSign()
         {
-            _number = _number * -1;
+            _isNegative = !_isNegative;
         }
 
         public string GetLine()
         {
-            return _number.ToString();
+            return PrepareResult().ToString();
         }
 
         public decimal GetNumber()
         {
             throw new NotImplementedException();
+        }
+
+        private decimal PrepareResult()
+        {
+            if (_isNegative)
+            {
+                return -1 * _number / _divider;
+            }
+
+            return _number / _divider;
         }
     }
 }
