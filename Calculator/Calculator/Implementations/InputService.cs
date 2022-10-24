@@ -27,7 +27,7 @@ namespace Calculator.Implementations
 
         public void ChangeSign()
         {
-            throw new NotImplementedException();
+            _number = _number * -1;
         }
 
         public string GetLine()

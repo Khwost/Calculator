@@ -272,7 +272,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnChangeSignPressed()
         {
-            OutputText += "±";
+            _inputService.ChangeSign();
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
