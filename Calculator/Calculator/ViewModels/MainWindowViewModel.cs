@@ -1,4 +1,6 @@
-﻿using ReactiveUI;
+﻿using Calculator.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
 using System.Reactive;
 
 namespace Calculator.ViewModels
@@ -24,6 +26,8 @@ namespace Calculator.ViewModels
                 this.RaiseAndSetIfChanged(ref _outputText, value);
             }
         }
+
+        private IInputService _inputService;
 
         #region Кнопки
 
@@ -114,7 +118,9 @@ namespace Calculator.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
-            OutputText = "0";
+            _inputService = Program.Di.GetService<IInputService>();
+
+            OutputText = _inputService.GetLine();
 
             PressSevenCommand = ReactiveCommand.Create(OnSevenPressed);
             PressEightCommand = ReactiveCommand.Create(OnEightPressed);
@@ -144,7 +150,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnSevenPressed()
         {
-            OutputText += "7";
+            _inputService.AddDigit(7);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -152,7 +159,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnEightPressed()
         {
-            OutputText += "8";
+            _inputService.AddDigit(8);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -160,7 +168,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnNinePressed()
         {
-            OutputText += "9";
+            _inputService.AddDigit(9);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -176,7 +185,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnFourPressed()
         {
-            OutputText += "4";
+            _inputService.AddDigit(4);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -184,7 +194,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnFivePressed()
         {
-            OutputText += "5";
+            _inputService.AddDigit(5);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -192,7 +203,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnSixPressed()
         {
-            OutputText += "6";
+            _inputService.AddDigit(6);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -208,7 +220,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnOnePressed()
         {
-            OutputText += "1";
+            _inputService.AddDigit(1);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -216,7 +229,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnTwoPressed()
         {
-            OutputText += "2";
+            _inputService.AddDigit(2);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -224,7 +238,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnThreePressed()
         {
-            OutputText += "3";
+            _inputService.AddDigit(3);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -240,7 +255,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnZeroPressed()
         {
-            OutputText += "0";
+            _inputService.AddDigit(0);
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
