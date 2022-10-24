@@ -264,7 +264,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnDotPressed()
         {
-            OutputText += ".";
+            _inputService.AddDot();
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>

@@ -8,7 +8,17 @@ namespace Calculator.Implementations
         /// <summary>
         /// Число, которое хранится и отображается на экране
         /// </summary>
-        private double _number;
+        private decimal _number;
+
+        /// <summary>
+        /// Делитель для введённого числа
+        /// </summary>
+        private int _divider = 10;
+
+        /// <summary>
+        /// Нажата точка или нет
+        /// </summary>
+        private bool _isDotPressed;
 
         public void AddDigit(int digit)
         {
@@ -17,12 +27,27 @@ namespace Calculator.Implementations
                 throw new ArgumentException(nameof(digit));
             }
 
-            _number = _number * 10 + digit;
+            if (_isDotPressed)
+            {
+                // После нажатия точки
+                _number = _number + digit / (decimal)_divider;
+                _divider = _divider * 10;
+            }
+            else
+            {
+                // Если точка не нажата
+                _number = _number * 10 + digit;
+            }
         }
 
         public void AddDot()
         {
-            throw new NotImplementedException();
+            if (_isDotPressed)
+            {
+                return;
+            }
+
+            _isDotPressed = true;
         }
 
         public void ChangeSign()
@@ -35,7 +60,7 @@ namespace Calculator.Implementations
             return _number.ToString();
         }
 
-        public double GetNumber()
+        public decimal GetNumber()
         {
             throw new NotImplementedException();
         }

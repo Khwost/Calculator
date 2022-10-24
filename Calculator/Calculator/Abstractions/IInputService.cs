@@ -28,6 +28,6 @@
         /// <summary>
         /// Отдаёт число
         /// </summary>
-        double GetNumber();
+        decimal GetNumber();
     }
 }
