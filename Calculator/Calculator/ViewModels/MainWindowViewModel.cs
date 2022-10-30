@@ -9,6 +9,8 @@ namespace Calculator.ViewModels
     {
         private readonly IInputService _inputService;
 
+        private readonly ICalculationService _calculatorService;
+
         /// <summary>
         /// Текст на экране
         /// </summary>
@@ -107,7 +109,7 @@ namespace Calculator.ViewModels
         public ReactiveCommand<Unit, Unit> PressDotCommand { get; }
 
         /// <summary>
-        /// Нажатие на кнопку процента
+        /// Нажатие на кнопку смены знака
         /// </summary>
         public ReactiveCommand<Unit, Unit> PressChangeSignCommand { get; }
 
@@ -115,6 +117,26 @@ namespace Calculator.ViewModels
         /// Нажатие на кнопку деления
         /// </summary>
         public ReactiveCommand<Unit, Unit> PressDivisionCommand { get; }
+
+        /// <summary>
+        /// Нажатие на кнопку возведения в квадрат
+        /// </summary>
+        public ReactiveCommand<Unit, Unit> PressSquareCommand { get; }
+
+        /// <summary>
+        /// Нажатие на кнопку возведения в куб
+        /// </summary>
+        public ReactiveCommand<Unit, Unit> PressCubeCommand { get; }
+
+        /// <summary>
+        /// Нажатие на кнопку квадратного корня
+        /// </summary>
+        public ReactiveCommand<Unit, Unit> PressSquareRootCommand { get; }
+
+        /// <summary>
+        /// Нажатие на кнопку кубического корня
+        /// </summary>
+        public ReactiveCommand<Unit, Unit> PressCubeRootCommand { get; }
 
         #endregion
 
@@ -125,6 +147,7 @@ namespace Calculator.ViewModels
         public MainWindowViewModel()
         {
             _inputService = Program.Di.GetService<IInputService>();
+            _calculatorService = Program.Di.GetService<ICalculationService>();
 
             OutputText = _inputService.GetLine();
 
@@ -147,9 +170,14 @@ namespace Calculator.ViewModels
             PressDotCommand = ReactiveCommand.Create(OnDotPressed);
             PressChangeSignCommand = ReactiveCommand.Create(OnChangeSignPressed);
             PressDivisionCommand = ReactiveCommand.Create(OnDivisionPressed);
+
+            PressSquareCommand = ReactiveCommand.Create(OnSquarePressed);
+            PressCubeCommand = ReactiveCommand.Create(OnCubePressed);
+            PressSquareRootCommand = ReactiveCommand.Create(OnSquareRootPressed);
+            PressCubeRootCommand = ReactiveCommand.Create(OnCubeRootPressed);
         }
 
-        #region Кнопки
+        #region Обработчики кнопок
 
         /// <summary>
         /// Кнопка 7
@@ -300,6 +328,34 @@ namespace Calculator.ViewModels
         private void OnDivisionPressed()
         {
             OutputText += "/";
+        }
+
+        /// <summary>
+        /// Кнопка возведения в квадрат
+        /// </summary>
+        private void OnSquarePressed()
+        {
+        }
+
+        /// <summary>
+        /// Кнопка возведения в куб
+        /// </summary>
+        private void OnCubePressed()
+        {
+        }
+
+        /// <summary>
+        /// Кнопка взятия квадратного корня
+        /// </summary>
+        private void OnSquareRootPressed()
+        {
+        }
+
+        /// <summary>
+        /// Кнопка взятия кубического корня
+        /// </summary>
+        private void OnCubeRootPressed()
+        {
         }
 
         #endregion

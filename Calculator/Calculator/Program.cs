@@ -36,6 +36,8 @@ namespace Calculator
 
             services.AddSingleton<IInputService, InputService>();
 
+            services.AddSingleton<ICalculationService, CalculationService>();
+
             return services;
         }
 
