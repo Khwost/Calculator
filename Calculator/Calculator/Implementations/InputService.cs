@@ -30,6 +30,11 @@ namespace Calculator.Implementations
         /// </summary>
         private bool _isDotPressed;
 
+        /// <summary>
+        /// Производятся операции с введёным числом - сверка на лимит и опреации с целыми и дробными числами
+        /// </summary>
+        /// <param name="digit"></param>
+        /// <exception cref="ArgumentException"></exception>
         public void AddDigit(int digit)
         {
             if (digit < 0 || digit > 9)
@@ -50,6 +55,9 @@ namespace Calculator.Implementations
             }
         }
 
+        /// <summary>
+        /// Проверка  на нажатие точки
+        /// </summary>
         public void AddDot()
         {
             if (_isDotPressed)
@@ -60,16 +68,27 @@ namespace Calculator.Implementations
             _isDotPressed = true;
         }
 
+        /// <summary>
+        /// Изменение знака
+        /// </summary>
         public void ChangeSign()
         {
             _isNegative = !_isNegative;
         }
 
+        /// <summary>
+        /// Помещает число в строку 
+        /// </summary>
+        /// <returns></returns>
         public string GetLine()
         {
             return PrepareResult().ToString();
         }
 
+        /// <summary>
+        /// Получает число из строки
+        /// </summary>
+        /// <returns></returns>
         public decimal GetNumber()
         {
             throw new NotImplementedException();
