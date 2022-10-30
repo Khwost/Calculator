@@ -7,6 +7,8 @@ namespace Calculator.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private readonly IInputService _inputService;
+
         /// <summary>
         /// Текст на экране
         /// </summary>
@@ -27,7 +29,10 @@ namespace Calculator.ViewModels
             }
         }
 
-        private IInputService _inputService;
+        /// <summary>
+        /// Число, отображаемое на экране (как результат вычислений, так и введёное)
+        /// </summary>
+        private decimal _currentDisplaedNumber;
 
         #region Кнопки
 
@@ -113,6 +118,7 @@ namespace Calculator.ViewModels
 
         #endregion
 
+
         /// <summary>
         /// Конструктор, связывающий кнопку с нажатем
         /// </summary>
@@ -152,6 +158,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(7);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -161,6 +168,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(8);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -170,6 +178,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(9);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -187,6 +196,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(4);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -196,6 +206,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(5);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -205,6 +216,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(6);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -222,6 +234,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(1);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -231,6 +244,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(2);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -240,6 +254,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(3);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -257,6 +272,7 @@ namespace Calculator.ViewModels
         {
             _inputService.AddDigit(0);
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -269,16 +285,17 @@ namespace Calculator.ViewModels
         }
 
         /// <summary>
-        /// Кнопка 3
+        /// Кнопка смены знака
         /// </summary>
         private void OnChangeSignPressed()
         {
             _inputService.ChangeSign();
             OutputText = _inputService.GetLine();
+            _currentDisplaedNumber = _inputService.GetNumber();
         }
 
         /// <summary>
-        /// Кнопка 3
+        /// Кнопка деления
         /// </summary>
         private void OnDivisionPressed()
         {

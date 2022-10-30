@@ -77,7 +77,7 @@ namespace Calculator.Implementations
         }
 
         /// <summary>
-        /// Помещает число в строку 
+        /// Помещает число в строку
         /// </summary>
         /// <returns></returns>
         public string GetLine()
@@ -91,7 +91,7 @@ namespace Calculator.Implementations
         /// <returns></returns>
         public decimal GetNumber()
         {
-            throw new NotImplementedException();
+            return PrepareResult();
         }
 
         private decimal PrepareResult()
