@@ -36,6 +36,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private decimal _currentDisplaedNumber;
 
+        private decimal _previosDisplaedNumber;
+
         #region Кнопки
 
         /// <summary>
@@ -214,7 +216,10 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnPlusPressed()
         {
-            OutputText += "+";
+            _previosDisplaedNumber = _currentDisplaedNumber;
+            _currentDisplaedNumber = 0;
+            _inputService.Reset();
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>

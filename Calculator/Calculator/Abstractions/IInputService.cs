@@ -29,5 +29,10 @@
         /// Отдаёт число
         /// </summary>
         decimal GetNumber();
+
+        /// <summary>
+        /// Сброс сервиса ввода (обнуление)
+        /// </summary>
+        void Reset();
     }
 }

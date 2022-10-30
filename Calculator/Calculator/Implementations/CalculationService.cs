@@ -1,6 +1,5 @@
 ﻿using Calculator.Abstractions;
 using DecimalMath;
-using System;
 
 namespace Calculator.Implementations
 {
@@ -18,22 +17,22 @@ namespace Calculator.Implementations
 
         public decimal Divide(decimal x, decimal y)
         {
-            throw new NotImplementedException();
+            return x / y;
         }
 
         public decimal Minus(decimal x, decimal y)
         {
-            throw new NotImplementedException();
+            return x - y;
         }
 
         public decimal Multiply(decimal x, decimal y)
         {
-            throw new NotImplementedException();
+            return x * y;
         }
 
         public decimal Plus(decimal x, decimal y)
         {
-            throw new NotImplementedException();
+            return x + y;
         }
 
         public decimal Square(decimal x)

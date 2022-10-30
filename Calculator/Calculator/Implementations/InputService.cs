@@ -94,6 +94,14 @@ namespace Calculator.Implementations
             return PrepareResult();
         }
 
+        public void Reset()
+        {
+            _number = 0;
+            _divider = 1;
+            _isNegative = false;
+            _isDotPressed = false;
+        }
+
         private decimal PrepareResult()
         {
             if (_isNegative)
