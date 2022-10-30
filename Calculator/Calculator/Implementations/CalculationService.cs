@@ -1,4 +1,5 @@
 ﻿using Calculator.Abstractions;
+using DecimalMath;
 using System;
 
 namespace Calculator.Implementations
@@ -7,12 +8,12 @@ namespace Calculator.Implementations
     {
         public decimal Cube(decimal x)
         {
-            throw new NotImplementedException();
+            return DecimalEx.Pow(x, 3);
         }
 
         public decimal CubeRoot(decimal x)
         {
-            throw new NotImplementedException();
+            return DecimalEx.Pow(x, 1m / 3m);
         }
 
         public decimal Divide(decimal x, decimal y)
@@ -37,12 +38,12 @@ namespace Calculator.Implementations
 
         public decimal Square(decimal x)
         {
-            throw new NotImplementedException();
+            return DecimalEx.Pow(x, 2);
         }
 
         public decimal SquareRoot(decimal x)
         {
-            throw new NotImplementedException();
+            return DecimalEx.Pow(x, 0.5m);
         }
     }
 }

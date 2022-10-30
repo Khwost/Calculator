@@ -335,6 +335,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnSquarePressed()
         {
+            _currentDisplaedNumber = _calculatorService.Square(_currentDisplaedNumber);
+            OutputText = _currentDisplaedNumber.ToString();
         }
 
         /// <summary>
@@ -342,6 +344,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnCubePressed()
         {
+            _currentDisplaedNumber = _calculatorService.Cube(_currentDisplaedNumber);
+            OutputText = _currentDisplaedNumber.ToString();
         }
 
         /// <summary>
@@ -349,6 +353,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnSquareRootPressed()
         {
+            _currentDisplaedNumber = _calculatorService.SquareRoot(_currentDisplaedNumber);
+            OutputText = _currentDisplaedNumber.ToString();
         }
 
         /// <summary>
@@ -356,6 +362,8 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnCubeRootPressed()
         {
+            _currentDisplaedNumber = _calculatorService.CubeRoot(_currentDisplaedNumber);
+            OutputText = _currentDisplaedNumber.ToString();
         }
 
         #endregion
