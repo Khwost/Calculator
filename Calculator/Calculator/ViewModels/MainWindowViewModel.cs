@@ -257,7 +257,10 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnMinusPressed()
         {
-            OutputText += "-";
+            _previosDisplaedNumber = _currentDisplaedNumber;
+            _currentDisplaedNumber = 0;
+            _inputService.Reset();
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -295,7 +298,10 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnMultiplicationPressed()
         {
-            OutputText += "*";
+            _previosDisplaedNumber = _currentDisplaedNumber;
+            _currentDisplaedNumber = 0;
+            _inputService.Reset();
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
@@ -332,7 +338,10 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnDivisionPressed()
         {
-            OutputText += "/";
+            _previosDisplaedNumber = _currentDisplaedNumber;
+            _currentDisplaedNumber = 0;
+            _inputService.Reset();
+            OutputText = _inputService.GetLine();
         }
 
         /// <summary>
