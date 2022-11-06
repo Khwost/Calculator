@@ -195,6 +195,11 @@ namespace Calculator.ViewModels
         /// </summary>
         public ReactiveCommand<Unit, Unit> PressEqualCommand { get; }
 
+        /// <summary>
+        /// Нажатие на кнопку сброса
+        /// </summary>
+        public ReactiveCommand<Unit, Unit> PressClearCommand { get; }
+
         #endregion
 
         /// <summary>
@@ -233,6 +238,7 @@ namespace Calculator.ViewModels
             PressCubeRootCommand = ReactiveCommand.Create(OnCubeRootPressed);
 
             PressEqualCommand = ReactiveCommand.Create(OnEqualPressed);
+            PressClearCommand = ReactiveCommand.Create(OnClearCommand);
         }
 
         #region Обработчики кнопок
@@ -439,6 +445,18 @@ namespace Calculator.ViewModels
         {
             _currentDisplayedNumber = _nextOperation(_previosDisplayedNumber, _currentDisplayedNumber);
             OutputText = _currentDisplayedNumber.ToString();
+        }
+
+        /// <summary>
+        /// Кнопка сброса
+        /// </summary>
+        private void OnClearCommand()
+        {
+            _previosDisplayedNumber = 0;
+            _currentDisplayedNumber = 0;
+            NextOperationAccessor = null;
+            OutputText = _currentDisplayedNumber.ToString();
+            _inputService.Reset();
         }
 
         #endregion
