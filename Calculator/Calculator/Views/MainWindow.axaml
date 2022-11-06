@@ -54,7 +54,7 @@
 			<Button Grid.Column="2" Grid.Row="5" Content="√" Classes="CalcButton" Command="{ Binding PressSquareRootCommand }"/>
 			<Button Grid.Column="3" Grid.Row="5" Content="∛" Classes="CalcButton" Command="{ Binding PressCubeRootCommand }"/>
 
-			<Button Grid.Column="0" Grid.Row="6" Content="=" Grid.ColumnSpan="2" Classes="CalcButton" Command="{ Binding PressEqualCommand }"/>
+			<Button Grid.Column="0" Grid.Row="6" Content="=" Grid.ColumnSpan="2" Classes="CalcButton" Command="{ Binding PressEqualCommand }" IsEnabled="{ Binding IsEqualsEnabled }"/>
 			<Button Grid.Column="2" Grid.Row="6" Content="С" Grid.ColumnSpan="2" Classes="CalcButton" />
 
 

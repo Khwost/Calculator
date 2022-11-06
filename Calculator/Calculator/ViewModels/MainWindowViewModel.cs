@@ -17,6 +17,24 @@ namespace Calculator.ViewModels
 
         private NextOperationDelegate _nextOperation;
 
+        /// <summary>
+        /// Код доступа к следующей операции
+        /// </summary>
+        private NextOperationDelegate NextOperationAccessor
+        {
+            get
+            {
+                return _nextOperation;
+            }
+
+            set
+            {
+                IsEqualsEnabled = value != null;
+
+                _nextOperation = value;
+            }
+        }
+
         private readonly IInputService _inputService;
 
         private readonly ICalculationService _calculatorService;
@@ -35,9 +53,31 @@ namespace Calculator.ViewModels
             {
                 return _outputText;
             }
+
             set
             {
                 this.RaiseAndSetIfChanged(ref _outputText, value);
+            }
+        }
+
+        /// <summary>
+        /// Активна-ли кнопка "равно"?
+        /// </summary>
+        private bool _isEqualsEnabled;
+
+        /// <summary>
+        /// Код для доступа к свойству "активна-ли кнопка "равно"?"
+        /// </summary>
+        public bool IsEqualsEnabled
+        {
+            get
+            {
+                return _isEqualsEnabled;
+            }
+
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _isEqualsEnabled, value);
             }
         }
 
@@ -157,7 +197,6 @@ namespace Calculator.ViewModels
 
         #endregion
 
-
         /// <summary>
         /// Конструктор, связывающий кнопку с нажатем
         /// </summary>
@@ -235,7 +274,7 @@ namespace Calculator.ViewModels
         {
             OnOperationButtonPressed();
 
-            _nextOperation = _calculatorService.Plus;
+            NextOperationAccessor = _calculatorService.Plus;
         }
 
         /// <summary>
@@ -275,7 +314,7 @@ namespace Calculator.ViewModels
         {
             OnOperationButtonPressed();
 
-            _nextOperation = _calculatorService.Minus;
+            NextOperationAccessor = _calculatorService.Minus;
         }
 
         /// <summary>
@@ -315,7 +354,7 @@ namespace Calculator.ViewModels
         {
             OnOperationButtonPressed();
 
-            _nextOperation = _calculatorService.Multiply;
+            NextOperationAccessor = _calculatorService.Multiply;
         }
 
         /// <summary>
@@ -354,7 +393,7 @@ namespace Calculator.ViewModels
         {
             OnOperationButtonPressed();
 
-            _nextOperation = _calculatorService.Divide;
+            NextOperationAccessor = _calculatorService.Divide;
         }
 
         /// <summary>
