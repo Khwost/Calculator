@@ -86,6 +86,20 @@ namespace Calculator.ViewModels
         /// </summary>
         private decimal _currentDisplayedNumber;
 
+        private decimal CurrentDisplayedNumberAccessor
+        {
+            get
+            {
+                return _currentDisplayedNumber;
+            }
+
+            set
+            {
+                _currentDisplayedNumber = value;
+                OutputText = _currentDisplayedNumber.ToString();
+            }
+        }
+
         private decimal _previosDisplayedNumber;
 
         #region Кнопки
@@ -249,8 +263,7 @@ namespace Calculator.ViewModels
         private void OnSevenPressed()
         {
             _inputService.AddDigit(7);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -259,8 +272,7 @@ namespace Calculator.ViewModels
         private void OnEightPressed()
         {
             _inputService.AddDigit(8);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -269,8 +281,7 @@ namespace Calculator.ViewModels
         private void OnNinePressed()
         {
             _inputService.AddDigit(9);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -289,8 +300,7 @@ namespace Calculator.ViewModels
         private void OnFourPressed()
         {
             _inputService.AddDigit(4);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -299,8 +309,7 @@ namespace Calculator.ViewModels
         private void OnFivePressed()
         {
             _inputService.AddDigit(5);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -309,8 +318,7 @@ namespace Calculator.ViewModels
         private void OnSixPressed()
         {
             _inputService.AddDigit(6);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -329,8 +337,7 @@ namespace Calculator.ViewModels
         private void OnOnePressed()
         {
             _inputService.AddDigit(1);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -339,8 +346,7 @@ namespace Calculator.ViewModels
         private void OnTwoPressed()
         {
             _inputService.AddDigit(2);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -349,8 +355,7 @@ namespace Calculator.ViewModels
         private void OnThreePressed()
         {
             _inputService.AddDigit(3);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -369,8 +374,7 @@ namespace Calculator.ViewModels
         private void OnZeroPressed()
         {
             _inputService.AddDigit(0);
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -388,8 +392,7 @@ namespace Calculator.ViewModels
         private void OnChangeSignPressed()
         {
             _inputService.ChangeSign();
-            OutputText = _inputService.GetLine();
-            _currentDisplayedNumber = _inputService.GetNumber();
+            CurrentDisplayedNumberAccessor = _inputService.GetNumber();
         }
 
         /// <summary>
@@ -407,8 +410,7 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnSquarePressed()
         {
-            _currentDisplayedNumber = _calculatorService.Square(_currentDisplayedNumber);
-            OutputText = _currentDisplayedNumber.ToString();
+            CurrentDisplayedNumberAccessor = _calculatorService.Square(CurrentDisplayedNumberAccessor);
         }
 
         /// <summary>
@@ -416,8 +418,7 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnCubePressed()
         {
-            _currentDisplayedNumber = _calculatorService.Cube(_currentDisplayedNumber);
-            OutputText = _currentDisplayedNumber.ToString();
+            CurrentDisplayedNumberAccessor = _calculatorService.Cube(CurrentDisplayedNumberAccessor);
         }
 
         /// <summary>
@@ -425,8 +426,7 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnSquareRootPressed()
         {
-            _currentDisplayedNumber = _calculatorService.SquareRoot(_currentDisplayedNumber);
-            OutputText = _currentDisplayedNumber.ToString();
+            CurrentDisplayedNumberAccessor = _calculatorService.SquareRoot(CurrentDisplayedNumberAccessor);
         }
 
         /// <summary>
@@ -434,8 +434,7 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnCubeRootPressed()
         {
-            _currentDisplayedNumber = _calculatorService.CubeRoot(_currentDisplayedNumber);
-            OutputText = _currentDisplayedNumber.ToString();
+            CurrentDisplayedNumberAccessor = _calculatorService.CubeRoot(CurrentDisplayedNumberAccessor);
         }
 
         /// <summary>
@@ -443,8 +442,7 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnEqualPressed()
         {
-            _currentDisplayedNumber = _nextOperation(_previosDisplayedNumber, _currentDisplayedNumber);
-            OutputText = _currentDisplayedNumber.ToString();
+            CurrentDisplayedNumberAccessor = _nextOperation(_previosDisplayedNumber, CurrentDisplayedNumberAccessor);
         }
 
         /// <summary>
@@ -453,9 +451,8 @@ namespace Calculator.ViewModels
         private void OnClearCommand()
         {
             _previosDisplayedNumber = 0;
-            _currentDisplayedNumber = 0;
+            CurrentDisplayedNumberAccessor = 0;
             NextOperationAccessor = null;
-            OutputText = _currentDisplayedNumber.ToString();
             _inputService.Reset();
         }
 
@@ -466,10 +463,9 @@ namespace Calculator.ViewModels
         /// </summary>
         private void OnOperationButtonPressed()
         {
-            _previosDisplayedNumber = _currentDisplayedNumber;
-            _currentDisplayedNumber = 0;
+            _previosDisplayedNumber = CurrentDisplayedNumberAccessor;
+            CurrentDisplayedNumberAccessor = 0;
             _inputService.Reset();
-            OutputText = _inputService.GetLine();
         }
     }
 }
